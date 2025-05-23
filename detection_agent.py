@@ -67,7 +67,7 @@ class DetectionAgent(http.server.BaseHTTPRequestHandler):
                     # Mitigate if NIM recommends blocking
                     if should_block:
                         try:
-                            subprocess.run(["/home/xfp13/selfheal-mitigate.sh", banned_ip], check=True)
+                            subprocess.run(["./selfheal-mitigate.sh", banned_ip], check=True)
                             print(f"Mitigated IP: {banned_ip}")
                         except subprocess.CalledProcessError as e:
                             print(f"Failed to mitigate IP {banned_ip}: {e}")
